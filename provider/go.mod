@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/provider
+module github.com/chainlink/pulumi-doppler/provider
 
 go 1.16
 
