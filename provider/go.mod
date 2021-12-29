@@ -8,7 +8,10 @@ replace (
 )
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.9.1
+	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.13.0
 	github.com/pulumi/pulumi/sdk/v3 v3.19.0
+	terraform-provider-doppler v0.0.0-00010101000000-000000000000
 )
+
+replace terraform-provider-doppler => github.com/DopplerHQ/terraform-provider-doppler v1.0.0

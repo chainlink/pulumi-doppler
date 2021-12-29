@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-pulumi/sdk
+module github.com/chainlink/pulumi-doppler/sdk
 
 go 1.16
 

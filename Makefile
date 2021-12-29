@@ -1,7 +1,7 @@
 PROJECT_NAME := pulumi Package
 
-PACK             := pulumi
-ORG              := pulumi
+PACK             := doppler
+ORG              := chainlink
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
