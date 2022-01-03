@@ -24,5 +24,5 @@ import (
 
 func main() {
 	// Modify the path to point to the new provider
-	tfbridge.Main("pulumi", version.Version, doppler.Provider(), dopplerSchema)
+	tfbridge.Main("doppler", version.Version, doppler.Provider(), dopplerSchema)
 }

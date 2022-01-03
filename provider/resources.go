@@ -33,7 +33,7 @@ const (
 	// registries for nodejs and python:
 	mainPkg = "pulumi-doppler"
 	// modules:
-	mainMod = "index" // the pulumi module
+	mainMod = "doppler" // the pulumi module
 )
 
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
@@ -52,12 +52,13 @@ func Provider() tfbridge.ProviderInfo {
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		P:           p,
-		Name:        "doppler",
+		Name:        "terraform-provider-doppler",
 		Description: "A Pulumi package for creating and managing doppler cloud resources.",
 		Keywords:    []string{"pulumi", "doppler"},
 		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/chainlink/pulumi-doppler",
+		Homepage:    "https://doppler.com",
+		Repository:  "https://github.com/DopplerHQ/terraform-provider-doppler/",
+		GitHubOrg:   "DopplerHQ",
 		Config:      map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
@@ -69,7 +70,7 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi type. Two examples
 			// are below - the single line form is the common case. The multi-line form is
 			// needed only if you wish to override types or other default options.
@@ -82,11 +83,16 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: tfbridge.MakeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"doppler_secret": {
+				Tok:  tfbridge.MakeResource(mainMod, "index", "Secret"),
+				Docs: &tfbridge.DocInfo{Source: "docs/resources/secret"},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
 			// "aws_ami": {Tok: tfbridge.MakeDataSource(mainMod, "getAmi")},
+			"doppler_secrets": {Tok: tfbridge.MakeDataSource(mainMod, "index", "getSecrets")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

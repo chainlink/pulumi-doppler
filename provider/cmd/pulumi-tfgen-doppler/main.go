@@ -23,5 +23,5 @@ import (
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("pulumi", version.Version, doppler.Provider())
+	tfgen.Main("doppler", version.Version, doppler.Provider())
 }
