@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/doppler",
-    "version": "v0.0.1-alpha.1640811439+174e6c10.dirty",
+    "version": "v0.1.0",
     "description": "A Pulumi package for creating and managing doppler cloud resources.",
     "keywords": [
         "pulumi",
